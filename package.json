@@ -1,0 +1,42 @@
+{
+  "name": "@amoutonbrady/etat",
+  "version": "0.0.1",
+  "private": false,
+  "sideEffects": false,
+  "description": "The tiniest global store possible for Solid",
+  "types": "dist/index.d.ts",
+  "main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    ".": {
+      "solid": "./dist/source/index.jsx",
+      "import": "./dist/esm/index.module.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "type": "module",
+  "files": ["dist"],
+  "scripts": {
+    "playground:dev": "vite",
+    "playground:build": "vite build",
+    "playground:serve": "vite preview",
+    "build": "rollup -c",
+    "prepublishOnly": "pnpm build"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Alexandre Mouton-Brady <amoutonbrady@gmail.com>",
+  "devDependencies": {
+    "prettier": "^2.8.1",
+    "rollup": "^3.7.5",
+    "rollup-preset-solid": "^2.0.1",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.2",
+    "vite-plugin-solid": "^2.5.0"
+  },
+  "dependencies": {
+    "solid-js": "^1.6.5"
+  }
+}
