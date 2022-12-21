@@ -4,14 +4,14 @@
   "private": false,
   "sideEffects": false,
   "description": "The tiniest global store possible for Solid",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "exports": {
     ".": {
       "solid": "./dist/source/index.jsx",
       "import": "./dist/esm/index.module.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/types/index.d.ts"
     }
   },
   "type": "module",
