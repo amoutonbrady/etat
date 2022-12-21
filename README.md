@@ -16,7 +16,7 @@ $ yarn install @amoutonbrady/etat
 
 ## Getting started
 
-1. Add the global `etatProvider`
+1. Add the global `EtatProvider`
    ```tsx
    // index.tsx
 
@@ -41,7 +41,7 @@ $ yarn install @amoutonbrady/etat
 
    import { createEtat } from '@amoutonbrady/etat`;
 
-   const useAuth = createEtat('auth', {
+   export const useAuth = createEtat('auth', {
      token: '',
      get isAuthenticated() {
        return this.token.length > 0;
@@ -51,20 +51,6 @@ $ yarn install @amoutonbrady/etat
 
 3. Use them as you please accross the whole app
    ```tsx
-   // app.tsx
-
-   import { Show } from 'solid-js';
-   import { Login } from './login.tsx';
-   import { useAuth } from './store.tsx';
-
-   export function App() {
-     const [auth] = useAuth();
-
-     return <Show when={!auth.isAuthenticated} fallback={<p>Your are logged in with the token {auth.token}<p>}>
-       <Login />
-     </Show>;
-   }
-
    // login.tsx
 
    import { useAuth } from './store.tsx';
@@ -78,6 +64,26 @@ $ yarn install @amoutonbrady/etat
 
      return <button type="button" onClick={login}>Login!</button>
    }
+
+   // app.tsx
+
+   import { Show } from 'solid-js';
+   import { Login } from './login.tsx';
+   import { useAuth } from './store.tsx';
+
+   export function App() {
+     const [auth] = useAuth();
+
+     return (
+       <Show
+         when={!auth.isAuthenticated}
+         fallback={<p>Your are logged in with the token {auth.token}</p>}
+       >
+         <Login />
+       </Show>
+     );
+   }
+
    ```
 
 ## API
